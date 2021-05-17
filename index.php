@@ -2,7 +2,7 @@
 require 'db_conn.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,22 +14,17 @@ require 'db_conn.php';
     <div class="main-section">
        <div class="add-section">
           <form action="app/add.php" method="POST" autocomplete="off">
-             <?php?>
-              <input type="text" 
-                     name="title" 
-                     placeholder="What do you need to do?" />
-              <button type="submit">Add &nbsp; <span>&#43;</span></button>
-             <?php?>
+              <input type="text" name="title" placeholder="Co chcesz dodać do listy?" />
+              <button type="submit">Dodaj &nbsp; <span>&#43;</span></button>
           </form>
        </div>
        <?php 
-          $todos = $conn->query("SELECT * FROM todos ORDER BY id DESC");
-       ?>
+          $todos = $conn->query("SELECT * FROM todos ORDER BY id DESC"); ?>
        <div class="show-todo-section">
             <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
                 <div class="todo-item">
                     <span id="<?php echo $todo['id']; ?>"
-                          class="remove-to-do">x</span>
+                    class="remove-to-do">usuń</span>
                     <?php if($todo['checked']){ ?> 
                         <input type="checkbox" class="check-box" data-todo-id ="<?php echo $todo['id']; ?>" checked />
                         <h2 class="checked"><?php echo $todo['title'] ?></h2>
@@ -38,7 +33,7 @@ require 'db_conn.php';
                         <h2><?php echo $todo['title'] ?></h2>
                     <?php } ?>
                     <br>
-                    <small>created: <?php echo $todo['date_time'] ?></small> 
+                    <small>dodano: <?php echo $todo['date_time'] ?></small> 
                 </div>
             <?php } ?>
        </div>
@@ -48,22 +43,17 @@ require 'db_conn.php';
         $(document).ready(function(){
             $('.remove-to-do').click(function(){
                 const id = $(this).attr('id');
-                $.post("app/remove.php", 
-                      {
-                          id: id
-                      },
-                      (data)  => {
+                $.post("app/remove.php", {
+                    id: id},
+                      (data)  =>{
                          if(data){
                              $(this).parent().hide(600);
-                         }
-                      });
+                         }});
             });
             $(".check-box").click(function(e){
                 const id = $(this).attr('data-todo-id');
-                $.post('app/check.php', 
-                      {
-                          id: id
-                      },
+                $.post('app/check.php', {
+                          id: id},
                       (data) => {
                           if(data != 'error'){
                               const h2 = $(this).next();
@@ -71,8 +61,7 @@ require 'db_conn.php';
                                   h2.removeClass('checked');
                               }else {
                                   h2.addClass('checked');
-                            }}
-                    });
+                            }}});
             });
         });
     </script>
