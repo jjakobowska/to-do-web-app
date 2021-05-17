@@ -6,18 +6,19 @@ if(isset($_POST['id'])){
     $id = $_POST['id'];
 
     if(empty($id)){
-        header("Location: ../index.php?mess=error");
+       echo 0;
     }else {
-        $stmt = $conn->prepare("INSERT INTO todos(title) VALUE(?)");
-        $res = $stmt->execute([$title]);
+        $stmt = $conn->prepare("DELETE FROM todos WHERE id=?");
+        $res = $stmt->execute([$id]);
 
         if($res){
-            header("Location: ../index.php?mess=success"); 
+            echo 1;
         }else {
-            header("Location: ../index.php");
+            echo 0;
         }
         $conn = null;
         exit();
     }
 }else {
     header("Location: ../index.php?mess=error");
+}
