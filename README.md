@@ -1,6 +1,7 @@
 # to-do-web-app
 
-Zadanie 1
+Zadanie 1 (pliki:db_conn.php; index.php; foldery:js, css, app;
+    Do otworzenie potrzebne jest zapisanie plików w ścieżce C:\xampp\htdocs, pobranie jquery-3.6.0.min jeżeli nie pobiera się z repozytorium, uruchomienia xampp (Apache i MySQL); jeżeli by nie działało pisz na maila: xola_x@adres.pl )
 
     Napisz w dowolnej technologii webowej prosta aplikacje do zarzadzania rzeczami do zrobienia, która
     pozwala:
