@@ -17,7 +17,7 @@ Zadanie 1 (pliki:db_conn.php; index.php; foldery:js, css, app;
       - NIE jest wymagane logowanie
       - NIE musicie tego faktycznie odpalac na zadnym serwerze - rozwiazaniem jest kod
       
-Zadanie 2
+Zadanie 2 (pliki z opisem commitu "zadanie 2"
 
     A teraz, spróbuj wejsc w interakcje ze swoja strona za pomoca aplikacji działajacej na twoim komputerze,
     niezaleznie od przegladarki (np. napisz klienta w Pythonie). Mozesz np. zaspamowac strone, dodajac na
